@@ -171,11 +171,9 @@ text_sensor:
       name: "$friendly_name SSID"
       entity_category: diagnostic
   - platform: template
-    name: "$friendly_name $project_name Version"
+    name: "${friendly_name} ${project_name} Version"
     lambda: |-
-      return {"$project_version"};
-    entity_category: diagnostic
-    update_interval: never
+      return to_string("$project_version");
 
 output:
   - platform: esp8266_pwm
